@@ -1,33 +1,33 @@
 # dbms_assignment
-SPPU MCA CA105 assignment 2023-2024 
+### SPPU MCA CA105 assignment 2023-2024 
 
-MCA 2023-24 CA105 assignment
+### MCA 2023-24 CA105 assignment
 
-Group Members 
-Adinath Badwe - 23112003
-Samarth Kulkarni - 23112019
-Shaikh Mohammed Fazle Haque Amin - 23112035
+## Group Members 
+### Adinath Badwe - 23112003
+### Samarth Kulkarni - 23112019
+### Shaikh Mohammed Fazle Haque Amin - 23112035
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Assumptions
+// **ASSUMPTIONS**
 
-1 - Commission of agent is calculated on gross amount of booking price.
-2 - Operations of the months of September,October and November are shown.
-3 - It is assumed for every route from A to B,there exists a route from B to A which is distinct from A to B.
+1 - Commission of agent is calculated on gross amount of booking price.\
+2 - Operations of the months of September,October and November are shown.\
+3 - It is assumed for every route from A to B,there exists a route from B to A which is distinct from A to B.\
 4 - In case a train, going from A to B, is delayed for greater than 30 min,
-	is it assumed that a standby train,driver,codriver and standby coaches are present at every such B location for prompt departure of the next schedule.
-5 - In case of a delayed train, the ticket table remains unaffected, and the passenger gets corresponding seat in the standby coaches
-6 - A train in given databse means a train engine and a coach is a train coach where passengers seat.
-7 - mileage in coach table is updated after its every trip.
-8 - Data is generated in such a way that a ticket is booked by a travel agent 40 percent of all tickets booked.
-9 - Expected times for schedule_stations are updated at the start of the year, whereas actual times are updated when the train reaches the respective station.
-10 - Data is generated in such a way that a ticket is confirmed only 80 percent of times.
-11 - In case a ticket is not booked by a travel agent, it is assumed that the ticket is booked by the passenger himself.
-12 - It is assumed that the train which makes its journey from A to B, also makes the journey from B to A, most of the times on the same day.
+	is it assumed that a standby train,driver,codriver and standby coaches are present at every such B location for prompt departure of the next schedule.\
+5 - In case of a delayed train, the ticket table remains unaffected, and the passenger gets corresponding seat in the standby coaches.\
+6 - A train in given databse means a train engine and a coach is a train coach where passengers seat.\
+7 - mileage in coach table is updated after its every trip.\
+8 - Data is generated in such a way that a ticket is booked by a travel agent 40 percent of all tickets booked.\
+9 - Expected times for schedule_stations are updated at the start of the year, whereas actual times are updated when the train reaches the respective station.\
+10 - Data is generated in such a way that a ticket is confirmed only 80 percent of times.\
+11 - In case a ticket is not booked by a travel agent, it is assumed that the ticket is booked by the passenger himself.\
+12 - It is assumed that the train which makes its journey from A to B, also makes the journey from B to A, most of the times on the same day.\
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// CREATE STATEMENTS
+// **CREATE STATEMENTS**
 
 create database assignment;
 use assignment;
@@ -170,7 +170,7 @@ alter table maintenance add foreign key coach_id references coach(coach_id);
 alter table maintenance add foreign key (previous_maintenance_id) references maintenance(maintenance_id);
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
-// Insert and Export Data Queries
+// **INSERT AND EXPORT DATA QUERIES**
 
 Insert data into coach:
 
@@ -178,7 +178,7 @@ load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-// Tables Explained in Brief
+// **TABLES EXPLAINED IN BRIEF**
 
 coach - (coach_id,mileage)
 coach_id is the primary key for coach.
@@ -274,7 +274,7 @@ done gives whether the maintenance is done or not.
 none of the columns can be null.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Tools Used
+// **TOOLS USED**
 
 Python libraries
 - csv,json,random,getindianname,mysql_connector_python used for dummy data generation 
@@ -293,7 +293,7 @@ https://www.mockaroo.com/
 https://indiarailinfo.com/
 - used for schedule and station data generation
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Work Done
+// **WORK DONE**
 
  - Creation of ER and Normalisation of database was done together by all the group members.
  - Creation of Database and execution of queries in MySQL done by Adinath.
@@ -303,9 +303,9 @@ https://indiarailinfo.com/
  - Online data generation work done together by all the members.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Queries 
-Set A done by Fazle
-Set B done by Samarth
-Set C done by Adinath
+// **QUERIES** 
+Set A done by Fazle\
+Set B done by Samarth\
+Set C done by Adinath\
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
