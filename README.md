@@ -7,6 +7,17 @@
 ### Adinath Badwe - 23112003
 ### Samarth Kulkarni - 23112019
 ### Shaikh Mohammed Fazle Haque Amin - 23112035
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+// **Steps taken**
+
+- first the important entities were noted down.
+- then the important relations between each entities were noted down.
+- individual relations between entities were created.
+- er diagram was created in accordance with above steps.
+- from er database schema was created.
+- database was created in accordance with the schema including all the constraints.
+- relevant data for the needs of the assignment was created.
+- given queries were executed.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **ASSUMPTIONS**
