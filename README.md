@@ -18,6 +18,7 @@
 - Due to lack of space ER attributes are written on a separate page.
 - Limits have been added in certain queries due to vast amounts of data output.
 - Since data has been generated randomly using programming and onlines websites, data is vast.
+-Part 2 Queries and output given in separate text files
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Steps taken**
 
