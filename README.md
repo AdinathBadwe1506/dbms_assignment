@@ -7,6 +7,13 @@
 ### Adinath Badwe - 23112003
 ### Samarth Kulkarni - 23112019
 ### Shaikh Mohammed Fazle Haque Amin - 23112035
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+// **Notes**
+- Dummy data is present in project files
+- Database dump is present in project files
+- Queries are presented as separate text files
+- er diagram is presented as an image
+- due to lack of space er attributes are written on a separate page
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Steps taken**
 
