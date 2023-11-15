@@ -37,11 +37,6 @@ destination_id gives the station_id of the destination location of the route.des
 distance gives the distance of the route
 none of the columns can null.
 
-route_day (route_id,day)
-route_day gives the operating days of the routes.
-(route_day,day) is the primary key.
-route_id comes from route(route_id).
-
 schedule_station(schedule_id,station_id,exp_arrival_time,exp_departure_time,actual_arrival_time,actual_departure_time)
 (schedule_id,station_id) is the primary key.
 schedule_id comes from schedule and station_id comes from station(station_id).
