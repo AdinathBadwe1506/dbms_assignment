@@ -380,6 +380,8 @@ https://indiarailinfo.com/
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **QUERIES** 
+Queries and output given in separate text files
+
 Set A done by Fazle\
 Set B done by Samarth\
 Set C done by Adinath
