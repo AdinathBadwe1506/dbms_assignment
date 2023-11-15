@@ -174,10 +174,64 @@ Insert data into coach:
 
 load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/coach.csv" into table coach fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
+Insert data into coach_schedule:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/coach_schedule.csv" into table coach_schedule fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into route:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/route.csv" into table route fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into schedule:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/schedule.csv" into table schedule fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into train:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/train.csv" into table train fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into schedule_station:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/schedule_station.csv" into table schedule_station fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into maintenance:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/maintenance.csv" into table maintenance fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into ticket:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/ticket.csv" into table coach fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into passenger:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/passenger.csv" into table passenger fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into discount:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/discount.csv" into table discount fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into travel_agent:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/travel_agent.csv" into table travel_agent fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into driver:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/driver.csv" into table driver fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into station:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/station.csv" into table station fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into seat:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/seat.csv" into table seat fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+
 Export data from passengers
 
 select * from passenger into outfile "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/passengers.csv" fields terminated by "," enclosed by '"' lines terminated by "\r\n";
 
+Same repeated for the other tables
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 // **TABLES EXPLAINED IN BRIEF**
