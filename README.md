@@ -10,12 +10,14 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Notes**
+
 - Dummy data is present in project files.
 - Database dump is present in project files.
 - Queries are presented as separate text files.
 - ER diagram is presented as an image.
 - Due to lack of space ER attributes are written on a separate page.
 - Limits have been added in certain queries due to vast amounts of data output.
+- Since data has been generated randomly using programming and onlines websites, data is vast.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Steps taken**
 
@@ -27,10 +29,8 @@
 - Database was created in accordance with the schema including all the constraints.
 - Relevant data for the needs of the assignment was created.
 - Given queries were executed.
-
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **ASSUMPTIONS**
-
 
 - Commission of agent is calculated on gross amount of booking price.\
 - Operations of the months of September,October and November are shown.\
