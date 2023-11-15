@@ -368,7 +368,7 @@ https://indiarailinfo.com/
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **WORK DONE**
 
- - Creation of ER and Normalisation of database was done together by all the group members.
+ - Creation of ER and Normalisation process of database was done together by all the group members.
  - Creation of Database and execution of queries in MySQL done by Adinath.
  - Generation of Dummy data according to the constrains on the tables done together by Fazle and Adinath.
  - Javascript work done by Fazle.
