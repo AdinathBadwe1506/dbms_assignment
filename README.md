@@ -32,23 +32,23 @@
 // **ASSUMPTIONS**
 
 
-1 - Commission of agent is calculated on gross amount of booking price.\
-2 - Operations of the months of September,October and November are shown.\
-3 - It is assumed for every route from A to B,there exists a route from B to A which is distinct from A to B.\
-4 - In case a train, going from A to B, is delayed for greater than 30 min,
+- Commission of agent is calculated on gross amount of booking price.\
+- Operations of the months of September,October and November are shown.\
+- It is assumed for every route from A to B,there exists a route from B to A which is distinct from A to B.\
+- In case a train, going from A to B, is delayed for greater than 30 min,
 	is it assumed that a standby train,driver,codriver and standby coaches are present at every such B location for prompt departure of the next schedule.\
-5 - In case of a delayed train, the ticket table remains unaffected, and the passenger gets corresponding seat in the standby coaches.\
-6 - A train in given databse means a train engine and a coach is a train coach where passengers seat.\
-7 - mileage in coach table is updated after its every trip.\
-8 - Data is generated in such a way that a ticket is booked by a travel agent 40 percent of all tickets booked.\
-9 - Expected times for schedule_stations are updated at the start of the year, whereas actual times are updated when the train reaches the respective station.\
-10 - Data is generated in such a way that a ticket is confirmed only 80 percent of times.\
-11 - In case a ticket is not booked by a travel agent, it is assumed that the ticket is booked by the passenger himself.\
-12 - It is assumed that the train which makes its journey from A to B, also makes the journey from B to A, most of the times on the same day.\
-13 - One ticket is for one seat.\
-14 - It is assumed that the data provided by the train company is valid so as to not generate any conflicts in database.\
-15 - A schedule is for a train and a set of coaches for a specific route on a specific date, with a driver and a codriver.\
-16 - In certain queries where train information was asked for, coach has been attached since a train only represents a train engine and an engine with its coaches forms a full train.
+- In case of a delayed train, the ticket table remains unaffected, and the passenger gets corresponding seat in the standby coaches.\
+- A train in given databse means a train engine and a coach is a train coach where passengers seat.\
+- mileage in coach table is updated after its every trip.\
+- Data is generated in such a way that a ticket is booked by a travel agent 40 percent of all tickets booked.\
+- Expected times for schedule_stations are updated at the start of the year, whereas actual times are updated when the train reaches the respective station.\
+- Data is generated in such a way that a ticket is confirmed only 80 percent of times.\
+- In case a ticket is not booked by a travel agent, it is assumed that the ticket is booked by the passenger himself.\
+- It is assumed that the train which makes its journey from A to B, also makes the journey from B to A, most of the times on the same day.\
+- One ticket is for one seat.\
+- It is assumed that the data provided by the train company is valid so as to not generate any conflicts in database.\
+- A schedule is for a train and a set of coaches for a specific route on a specific date, with a driver and a codriver.\
+- In certain queries where train information was asked for, coach has been attached since a train only represents a train engine and an engine with its coaches forms a full train.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -197,21 +197,45 @@ Insert data into coach:
 
 load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/coach.csv" into table coach fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
-Insert data into coach_schedule:
+Insert data into station:
 
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/coach_schedule.csv" into table coach_schedule fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/station.csv" into table station fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
 Insert data into route:
 
 load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/route.csv" into table route fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
+Insert data into train:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/train.csv" into table train fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into discount:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/discount.csv" into table discount fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into passenger:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/passenger.csv" into table passenger fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into travel_agent:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/travel_agent.csv" into table travel_agent fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into driver:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/driver.csv" into table driver fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into seat:
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/seat.csv" into table seat fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
 Insert data into schedule:
 
 load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/schedule.csv" into table schedule fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
-Insert data into train:
+Insert data into coach_schedule:
 
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/train.csv" into table train fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/coach_schedule.csv" into table coach_schedule fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
 Insert data into schedule_station:
 
@@ -225,31 +249,6 @@ Insert data into ticket:
 
 load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/ticket.csv" into table coach fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
-Insert data into passenger:
-
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/passenger.csv" into table passenger fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
-
-Insert data into discount:
-
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/discount.csv" into table discount fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
-
-Insert data into travel_agent:
-
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/travel_agent.csv" into table travel_agent fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
-
-Insert data into driver:
-
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/driver.csv" into table driver fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
-
-Insert data into station:
-
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/station.csv" into table station fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
-
-Insert data into seat:
-
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/seat.csv" into table seat fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
-
-
 Export data from passengers
 
 select * from passenger into outfile "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/passengers.csv" fields terminated by "," enclosed by '"' lines terminated by "\r\n";
@@ -261,7 +260,7 @@ Same repeated for the other tables
 
 coach - (coach_id,mileage)
 coach_id is the primary key for coach.
-mileage gives the current of the coach. After each trip of a coach, its current mileage is to be updated.
+mileage gives the current mileage of the coach. After each trip of a coach, its current mileage is to be updated.
 
 -schedule (schedule_id,route_id,train_id,driver_id,codriver_id,standby_train_id,standby_driver_id,standby_codriver_id)
 schedule_id is the primary key.
@@ -277,7 +276,7 @@ standby_codriver_id gives the replacement co driver_id which is used when the sc
 (coach_id,schedule_id) is the primary key.
 coach_id comes from coach(coach_id).
 schedule_id comes from schedule(schedule_id).
-coach_schedule gives the coaches for a schedule or schedules of a coach.
+coach_schedule establishes relation between coach and schedule
 
 -discount (type,discount)
 type is the primary key.
