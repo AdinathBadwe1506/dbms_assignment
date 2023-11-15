@@ -7,6 +7,7 @@
 ### Adinath Badwe - 23112003
 ### Samarth Kulkarni - 23112019
 ### Shaikh Mohammed Fazle Haque Amin - 23112035
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Notes**
 - Dummy data is present in project files.
@@ -30,6 +31,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **ASSUMPTIONS**
 
+
 1 - Commission of agent is calculated on gross amount of booking price.\
 2 - Operations of the months of September,October and November are shown.\
 3 - It is assumed for every route from A to B,there exists a route from B to A which is distinct from A to B.\
@@ -47,6 +49,7 @@
 14 - It is assumed that the data provided by the train company is valid so as to not generate any conflicts in database.\
 15 - A schedule is for a train and a set of coaches for a specific route on a specific date, with a driver and a codriver.\
 16 - In certain queries where train information was asked for, coach has been attached since a train only represents a train engine and an engine with its coaches forms a full train
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // **CREATE STATEMENTS**
