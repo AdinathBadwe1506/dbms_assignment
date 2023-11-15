@@ -46,8 +46,8 @@
 13 - One ticket is for one seat.\
 14 - It is assumed that the data provided by the train company is valid so as to not generate any conflicts in database.\
 15 - A schedule is for a train and a set of coaches for a specific route on a specific date, with a driver and a codriver.\
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+16 - In certain queries where train information was asked for, coach has been attached since a train only represents a train engine and an engine with its coaches forms a full train
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // **CREATE STATEMENTS**
 
