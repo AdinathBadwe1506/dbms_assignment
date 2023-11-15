@@ -352,7 +352,8 @@ https://indiarailinfo.com/
  - Javascript work done by Fazle.
  - Python work done by Adinath.
  - Online data generation work done together by all the members.
- - No extra steps were required to normalise the database since we tried to make sure to create the database in normalised form. 
+ - No extra steps were required to normalise the database since we tried to make sure to create the database in normalised form.
+ - All Github done by Adinath.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **QUERIES** 
