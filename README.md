@@ -9,11 +9,12 @@
 ### Shaikh Mohammed Fazle Haque Amin - 23112035
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Notes**
-- Dummy data is present in project files
-- Database dump is present in project files
-- Queries are presented as separate text files
-- er diagram is presented as an image
-- due to lack of space er attributes are written on a separate page
+- Dummy data is present in project files.
+- Database dump is present in project files.
+- Queries are presented as separate text files.
+- ER diagram is presented as an image.
+- Due to lack of space ER attributes are written on a separate page.
+- Limits have been added in certain queries due to vast amounts of data output.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Steps taken**
 
