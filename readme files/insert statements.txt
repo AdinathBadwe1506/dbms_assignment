@@ -1,2 +1,7 @@
 Insert data into coach:
+
 load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/coach.csv" into table coach fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Export data from passengers
+
+select * from passenger into outfile "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/passengers.csv" fields terminated by "," enclosed by '"' lines terminated by "\r\n";
