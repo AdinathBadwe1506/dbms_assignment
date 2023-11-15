@@ -81,9 +81,9 @@ create table schedule_station(
 schedule_id int,
 station_id int,
 exp_arrival_time datetime not null,
-exp_departure_time` datetime not null,
-actual_arrival_time` datetime,
-actual_departure_time` datetime,
+exp_departure_time datetime not null,
+actual_arrival_time datetime,
+actual_departure_time datetime,
 primary key (schedule_id,station_id)
 );
 
