@@ -1,4 +1,4 @@
---SET 
+--SET B
 
 --Query 5
 SELECT r.* COUNT(*) AS total_tickets,
@@ -8,3 +8,36 @@ INNER JOIN schedule sch ON r.route_id = sch.route_id
 INNER JOIN ticket t ON t.schedule_id = sch.schedule_id
 GROUP BY r.route_id
 HAVING agent_tickets < total_tickets / 2;
+
+query 2 : 
+select count(schedule.schedule_id) "Number of scheduled trips this year",coach_schedule.coach_id from schedule inner join coach_schedule on schedule.schedule_id=coach_Schedule.schedule_id where coach_schedule.coach_id in (select coach_Schedule.coach_id from schedule inner join coach_schedule on schedule.schedule_id=coach_schedule.schedule_id inner join route on route.route_id=schedule.route_id where schedule.date between "2020-09-01" and "2020-09-30" group by coach_id having sum(route.distance) between 4000 and 4999) group by coach_schedule.coach_id;
+
++-------------------------------------+----------+
+| Number of scheduled trips this year | coach_id |
++-------------------------------------+----------+
+|                                  26 |        1 |
+|                                  26 |        2 |
+|                                  26 |        3 |
+|                                  26 |        4 |
+|                                  26 |        5 |
++-------------------------------------+----------+
+5 rows in set (0.01 sec)
+
+mysql>
+
+query 1
+select schedule.schedule_id,s.name start,d.name destination,driver.driver_id,driver.name,driver.city_of_residence,driver.rest_day from schedule inner join driver on schedule.driver_id=driver.driver_id inner join route on route.route_id=schedule.route_id inner join station s on route.start_id=s.station_id inner join station d on d.station_id=route.destination_id where schedule.date="2020-10-10";
+
++-------------+-----------+-------------+-----------+---------------+-------------------+-----------+
+| schedule_id | start     | destination | driver_id | name          | city_of_residence | rest_day  |
++-------------+-----------+-------------+-----------+---------------+-------------------+-----------+
+|          11 | Lonavala  | Ajmer       |         1 | Abhay Kumar   | Pune              | Sunday    |
+|          12 | Ajmer     | Lonavala    |         2 | Aarav Sharma  | Delhi             | Wednesday |
+|          89 | Dharwad   | Bengaluru   |         9 | Aditya Sharma | Pune              | Friday    |
+|          90 | Bengaluru | Dharwad     |        10 | Ayesha Kapoor | Delhi             | Wednesday |
+|         119 | Mumbai    | Goa         |        21 | Anika Singh   | Kolkata           | Wednesday |
+|         120 | Goa       | Mumbai      |        22 | Aarav Patel   | Hyderabad         | Friday    |
++-------------+-----------+-------------+-----------+---------------+-------------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql>
