@@ -1,0 +1,10 @@
+--SET 
+
+--Query 5
+SELECT r.* COUNT(*) AS total_tickets,
+COUNT(CASE WHEN t.travel_agent IS NOT NULL THEN 1 END) AS agent_tickets
+FROM route r
+INNER JOIN schedule sch ON r.route_id = sch.route_id
+INNER JOIN ticket t ON t.schedule_id = sch.schedule_id
+GROUP BY r.route_id
+HAVING agent_tickets < total_tickets / 2;
