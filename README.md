@@ -24,6 +24,8 @@
 10 - Data is generated in such a way that a ticket is confirmed only 80 percent of times.\
 11 - In case a ticket is not booked by a travel agent, it is assumed that the ticket is booked by the passenger himself.\
 12 - It is assumed that the train which makes its journey from A to B, also makes the journey from B to A, most of the times on the same day.\
+13 - One ticket is for one seat
+14 - It is assumed that the data provided by the train company is valid so as to not generate any conflicts in database
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -296,11 +298,12 @@ https://indiarailinfo.com/
  - Javascript work done by Fazle.
  - Python work done by Adinath.
  - Online data generation work done together by all the members.
+ - No extra steps were required to normalise the database since we tried to make sure to create the database in normalised form. 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **QUERIES** 
 Set A done by Fazle\
 Set B done by Samarth\
-Set C done by Adinath\
+Set C done by Adinath
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
