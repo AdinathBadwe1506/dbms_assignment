@@ -19,14 +19,14 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Steps taken**
 
-- first the important entities were noted down.
-- then the important relations between each entities were noted down.
-- individual relations between entities were created.
-- er diagram was created in accordance with above steps.
-- from er database schema was created.
-- database was created in accordance with the schema including all the constraints.
-- relevant data for the needs of the assignment was created.
-- given queries were executed.
+- First the important entities were noted down.
+- Then the important relations between each entities were noted down.
+- Individual relations between entities were created.
+- ER diagram was created in accordance with above steps.
+- From ER database schema was created.
+- Database was created in accordance with the schema including all the constraints.
+- Relevant data for the needs of the assignment was created.
+- Given queries were executed.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **ASSUMPTIONS**
@@ -48,7 +48,7 @@
 13 - One ticket is for one seat.\
 14 - It is assumed that the data provided by the train company is valid so as to not generate any conflicts in database.\
 15 - A schedule is for a train and a set of coaches for a specific route on a specific date, with a driver and a codriver.\
-16 - In certain queries where train information was asked for, coach has been attached since a train only represents a train engine and an engine with its coaches forms a full train
+16 - In certain queries where train information was asked for, coach has been attached since a train only represents a train engine and an engine with its coaches forms a full train.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
