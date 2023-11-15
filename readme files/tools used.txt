@@ -1,0 +1,17 @@
+
+Python libraries
+- csv,json,random,getindianname,mysql_connector_python used for dummy data generation 
+- standard library used for dummy data generation
+
+Javascript libraries
+- file system module used for dummy data generation
+- standard module used for dummy data generation 
+
+https://generatedata.com/generator
+- used for dummy data generation
+
+https://www.mockaroo.com/
+- used for dummy data generation 
+
+https://indiarailinfo.com/
+- used for schedule and station data generation

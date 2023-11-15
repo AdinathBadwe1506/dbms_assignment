@@ -1,0 +1,13 @@
+// Assumptions
+
+1 - Commission of agent is calculated on gross amount of booking price
+2 - Operations of the months of September,October and November are shown
+3 - It is assumed for every trip a train makes from A to B, it returns from B to A the same day
+4 - In case a train, going from A to B, is delayed for greater than 30 min,
+	is it assumed that a standby train,driver,codriver and standby coaches are present at every such B location for prompt departure
+5 - In case of a delayed train, the ticket table remains unaffected, and the passenger gets corresponding seat in the standby coaches
+6 - A train in given databse means a train engine and a coach is a train coach where passengers seat.
+7 - mileage in coach table is updated after its every trip.
+8 - Data is generated in such a way that a ticket is booked by a travel agent 40 percent of all tickets booked.
+9 - Expected times for schedule_stations are updated at the start of the year, whereas actual times are updated when the train reaches the respective station.
+10 - Data is generated in such a way that a ticket is confirmed only 80 percent of times.
