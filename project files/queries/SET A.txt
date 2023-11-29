@@ -5,10 +5,11 @@ SELECT DISTINCT t.train_id, t.name, r.route_id, r.start_id, r.destination_id, CO
 FROM train t
 INNER JOIN schedule s ON s.train_id = t.train_id
 INNER JOIN route r ON r.route_id = s.route_id
-INNER JOIN coach_schedule cs ON cs.schedule_id = s.schedule_id
+INNER JOIN scheduled_coach cs ON cs.schedule_id = s.schedule_id
 INNER JOIN maintenance m ON cs.coach_id = m.coach_id
 WHERE (
-    m.coach_id IN (
+    -- m.coach_id IN (
+    r.route_id IN (
         SELECT r.route_id
         FROM route r
         INNER JOIN station s1 ON r.start_id = s1.station_id
@@ -17,18 +18,28 @@ WHERE (
               (s1.name = "Ajmer" AND s2.name = "Lonavala")
     )
 )
-    AND m.done = 0 AND m.date BETWEEN "2020-01-01" AND "2020-11-30"
+    AND m.done = 0 AND m.date BETWEEN "2021-01-01" AND "2021-11-30"
 GROUP BY t.train_id, t.name, r.route_id, r.start_id, r.destination_id
 HAVING COUNT(DISTINCT m.coach_id) >= (
     SELECT COUNT(DISTINCT cs.coach_id) / 2
-    FROM coach_schedule cs
+    FROM scheduled_coach cs
     INNER JOIN schedule s ON s.schedule_id = cs.schedule_id
     WHERE s.train_id = t.train_id
 );
 
-
-Empty set (0.00 sec)
-
++----------+---------------------+----------+----------+----------------+-------------+
+| train_id | name                | route_id | start_id | destination_id | coach_count |
++----------+---------------------+----------+----------+----------------+-------------+
+|        1 | Kaveri Express      |       14 |       67 |             61 |           5 |
+|        6 | Deccan Queen        |       20 |        1 |             10 |           5 |
+|        7 | Garib Rath Express  |       20 |        1 |             10 |           5 |
+|        8 | Pushpak Express     |       20 |        1 |             10 |           5 |
+|        9 | Jhelum Express      |       20 |        1 |             10 |           5 |
+|       10 | Golden Temple Mail  |       20 |        1 |             10 |           5 |
+|       11 | Purushottam Express |       20 |        1 |             10 |           5 |
+|       12 | Humsafar Express    |       20 |        1 |             10 |           5 |
++----------+---------------------+----------+----------+----------------+-------------+
+8 rows in set (0.04 sec)
 --Query 2
 SELECT r.*,
 COUNT(*) AS total_tickets_sold,
@@ -119,10 +130,10 @@ SELECT r.*
 FROM route r
 WHERE NOT EXISTS (
     SELECT 1
-    FROM schedule_station ss
-    INNER JOIN schedule s ON  s.schedule_id = ss.schedule_id
+    FROM intermediate_stations iss
+    INNER JOIN schedule s ON  s.schedule_id = iss.schedule_id
     WHERE s.route_id = r.route_id
-    AND ss.actual_arrival_time > ss.exp_arrival_time
+    AND iss.actual_arrival_time > iss.exp_arrival_time
 );
 +----------+----------+----------------+----------+
 | route_id | start_id | destination_id | distance |
