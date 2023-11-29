@@ -14,11 +14,11 @@
 - Dummy data is present in project files.
 - Database dump is present in project files.
 - Queries are presented as separate text files.
-- ER diagram is presented as an image.
-- Due to lack of space ER attributes are written on a separate page.
+- ER diagram is presented as a pdf and as on odg file.
+- In ER diagram dotted lines represent compulsory participation
 - Limits have been added in certain queries due to vast amounts of data output.
 - Since data has been generated randomly using programming and onlines websites, data is vast.
--Part 2 Queries and output given in separate text files
+- Part 2 Queries and output given in separate text files
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Steps taken**
 
@@ -347,8 +347,20 @@ previous_maintenance_id gives the maintenance_id of the previous maintenance don
 done gives whether the maintenance is done or not.
 none of the columns can be null.
 
+-operating_days(route_id,weekday)
+(route_id,weekday) is the primary key
+route_id comes from route(route_id)
+weekdays comes from weekdays(weekday)
+operatings_days gives the days on which routes operate
+
+-weekdays(weekday)
+weekday is a weekday of the week
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **TOOLS USED**
+
+LibreDraw
+- used for drawing ER Diagram
 
 Python libraries
 - csv,json,random,getindianname,mysql_connector_python used for dummy data generation 
@@ -366,19 +378,19 @@ https://www.mockaroo.com/
 
 https://indiarailinfo.com/
 - used for schedule and station data generation
+  
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **WORK DONE**
 
  - Creation of ER of database was done together by all the group members.
- - Normalisation was ensured by Adinath.
  - Creation of Database and execution of queries in MySQL done by Adinath.
  - Generation of Dummy data according to the constrains on the tables done together by Fazle and Adinath.
  - Javascript work done by Fazle.
  - Python work done by Adinath.
  - Online data generation work done together by all the members.
- - No extra steps were required to normalise the database since we tried to make sure to create the database in normalised form.
  - All Github work done by Adinath.
-
+ - ER diagram drawn by Adinath
+   
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **QUERIES** 
 Queries and output given in separate text files
