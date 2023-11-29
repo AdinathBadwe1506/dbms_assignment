@@ -131,7 +131,7 @@ alter table schedule add foreign key (standby_driver_id) references driver(drive
 alter table schedule add foreign key (standby_codriver_id) references driver(driver_id);
 alter table schedule add foreign key (standby_train_id) references train(train_id);
 
-create table schedule_station(
+create table intermediate_stations(
 schedule_id int,
 station_id int,
 exp_arrival_time datetime not null,
@@ -141,8 +141,8 @@ actual_departure_time datetime,
 primary key (schedule_id,station_id)
 );
 
-alter table schedule_station add foreign key (schedule_id) references schedule(schedule_id);
-alter table schedule_station add foreign key (station_id) references station(station_id);
+alter table intermediate_stations add foreign key (schedule_id) references schedule(schedule_id);
+alter table intermediate_stations add foreign key (station_id) references station(station_id);
 
 create table seat (
 seat_id int primary key,
@@ -171,14 +171,14 @@ alter table add foreign key (schedule_id) references schedule(schedule_id);
 alter table add foreign key (travel_agent) references travel_agent(travel_agent_id);
 alter table add foreign key (passenger_id) references passenger(passenger_id);
 
-create table coach_schedule (
+create table scheduled_coach (
 coach_id int,
 schedule_id int,
 primary key(coach_id,schedule_id)
 );
 
-alter table coach_schedule add foreign key (coach_id) references coach(coach_id);
-alter table coach_schedule add foreign key (schedule_id) references schedule(schedule_id);
+alter table scheduled_coach add foreign key (coach_id) references coach(coach_id);
+alter table scheduled_coach add foreign key (schedule_id) references schedule(schedule_id);
 
 create table maintenance(
 maintenance_id int primary key,
@@ -190,6 +190,12 @@ done bool not null
 
 alter table maintenance add foreign key coach_id references coach(coach_id);
 alter table maintenance add foreign key (previous_maintenance_id) references maintenance(maintenance_id);
+
+create table weekdays ( weekday varchar(10));
+
+create table operating_days ( route_id int, weekday varchar(10), primary key (route_id,weekday) );
+
+alter table operating_days add foreign key (weekday) references weekdays(weekday);
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // **INSERT AND EXPORT DATA QUERIES**
@@ -236,11 +242,11 @@ load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files
 
 Insert data into coach_schedule:
 
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/coach_schedule.csv" into table coach_schedule fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/scheduled_station.csv" into table coach_schedule fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
 Insert data into schedule_station:
 
-load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/schedule_station.csv" into table schedule_station fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/intermediate_stations.csv" into table schedule_station fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
 Insert data into maintenance:
 
@@ -249,6 +255,14 @@ load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files
 Insert data into ticket:
 
 load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/ticket.csv" into table coach fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into weekdays
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/weekdays.csv" into table coach fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
+
+Insert data into operating_days
+
+load data local infile "F:/MCA SPPU/SEM 1/cs105/assignment1/actual/project files/operating_days.csv" into table coach fields terminated by "," enclosed by '"' lines terminated by "\r\n" ignore 1 lines;
 
 Export data from passengers
 
