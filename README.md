@@ -13,12 +13,13 @@
 
 - Dummy data is present in project files.
 - Database dump is present in project files.
-- Queries are presented as separate text files.
+- PArt 2 queries are presented as separate text files.
 - ER diagram is presented as a pdf and as on odg file.
-- In ER diagram dotted lines represent compulsory participation
+- In ER diagram dotted lines represent compulsory participation.
+- ER attributes are given in a docx file.
 - Limits have been added in certain queries due to vast amounts of data output.
 - Since data has been generated randomly using programming and onlines websites, data is vast.
-- Part 2 Queries and output given in separate text files
+  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **Steps taken**
 
@@ -30,26 +31,28 @@
 - Database was created in accordance with the schema including all the constraints.
 - Relevant data for the needs of the assignment was created.
 - Given queries were executed.
+  
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 // **ASSUMPTIONS**
 
-- Commission of agent is calculated on gross amount of booking price.\
-- Operations of the months of September,October and November are shown.\
-- It is assumed for every route from A to B,there exists a route from B to A which is distinct from A to B.\
+- Commission of agent is calculated on gross amount of booking price.
+- Operations of the months of September,October and November are shown.
+- It is assumed for every route from A to B,there exists a route from B to A which is distinct from A to B.
 - In case a train, going from A to B, is delayed for greater than 30 min,
-	is it assumed that a standby train,driver,codriver and standby coaches are present at every such B location for prompt departure of the next schedule.\
-- In case of a delayed train, the ticket table remains unaffected, and the passenger gets corresponding seat in the standby coaches.\
-- A train in given databse means a train engine and a coach is a train coach where passengers seat.\
-- mileage in coach table is updated after its every trip.\
-- Data is generated in such a way that a ticket is booked by a travel agent 40 percent of all tickets booked.\
-- Expected times for schedule_stations are updated at the start of the year, whereas actual times are updated when the train reaches the respective station.\
-- Data is generated in such a way that a ticket is confirmed only 80 percent of times.\
-- In case a ticket is not booked by a travel agent, it is assumed that the ticket is booked by the passenger himself.\
-- It is assumed that the train which makes its journey from A to B, also makes the journey from B to A, most of the times on the same day.\
-- One ticket is for one seat.\
-- It is assumed that the data provided by the train company is valid so as to not generate any conflicts in database.\
-- A schedule is for a train and a set of coaches for a specific route on a specific date, with a driver and a codriver.\
+	is it assumed that a standby train,driver,codriver and standby coaches are present at every such B location for prompt departure of the next schedule.
+- In case of a delayed train, the ticket table remains unaffected, and the passenger gets corresponding seat in the standby coaches.
+- A train in given databse means a train engine and a coach is a train coach where passengers seat.
+- mileage in coach table is updated after its every trip.
+- Data is generated in such a way that a ticket is booked by a travel agent 40 percent of all tickets booked.
+- Expected times for schedule_stations are updated at the start of the year, whereas actual times are updated when the train reaches the respective station.
+- Data is generated in such a way that a ticket is confirmed only 80 percent of times.
+- In case a ticket is not booked by a travel agent, it is assumed that the ticket is booked by the passenger himself.
+- It is assumed that the train which makes its journey from A to B, also makes the journey from B to A, most of the times on the same day.
+- One ticket is for one seat.
+- It is assumed that the data provided by the train company is valid so as to not generate any conflicts in database.
+- A schedule is for a train and a set of coaches for a specific route on a specific date, with a driver and a codriver.
 - In certain queries where train information was asked for, coach has been attached since a train only represents a train engine and an engine with its coaches forms a full train.
+- Schedules can be added in the middle of the year.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -60,7 +63,7 @@ use assignment;
 
 create table coach(
 coach_id int primary key,
-mileage int
+mileage int default 0
 );
 
 create table station (
@@ -191,9 +194,15 @@ done bool not null
 alter table maintenance add foreign key coach_id references coach(coach_id);
 alter table maintenance add foreign key (previous_maintenance_id) references maintenance(maintenance_id);
 
-create table weekdays ( weekday varchar(10));
+create table weekdays (
+weekday varchar(10)
+);
 
-create table operating_days ( route_id int, weekday varchar(10), primary key (route_id,weekday) );
+create table operating_days (
+route_id int,
+weekday varchar(10),
+primary key (route_id,weekday)
+);
 
 alter table operating_days add foreign key (weekday) references weekdays(weekday);
 
